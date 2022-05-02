@@ -18,12 +18,18 @@ requirejs.config({
 requirejs(["app/TicTacToeGame", "app/TicTacToeModel","app/TicTacToeView", "app/Players", "app/Credentials", "lib/tmi.js", "jquery"], function() {
 
     if (Credentials.OAuth == null) {
+        console.log("OAuth Token not in session storage");
         if (document.location.hash.length > 1) {
+            console.log("Hash Returned:" + document.location.hash);
             let oauth = new URLSearchParams(document.location.hash);
             
-            Credentials.OAuth = oauth.get("access_token");
+            console.log(oauth.get("access_token"));
+            Credentials.OAuth = "oauth:" + oauth.get("access_token");
+
+            console.log("Redirecting to remove Auth Token from URL");
             document.location = "https://twardl01.github.io/";
         } else {
+            console.log("Redirecting to Fetch Auth Token");
             document.location = "https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=nevfo1rfh0nqsty2ih6fifsfidrrdg&redirect_uri=https://twardl01.github.io/&scope=chat%3Aread";
         }
     }
