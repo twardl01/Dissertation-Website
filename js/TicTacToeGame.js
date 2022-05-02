@@ -30,7 +30,7 @@ class TicTacToeGame {
         $(this.view).on('game-restart',() => {this.tttGame.restartGame();});
         $(this.view).on('game-start',() => { 
             //handles cases where no chatbot data in session storage
-            if (Credentials.channel == undefined || Credentials.OAuth == undefined || Credentials.username == undefined) {
+            if (Credentials.channel == undefined ||  Credentials.username == undefined) {
                 this.view.enableAlert("danger","Error: Please enter Twitch Bot credentials before starting the game.");
             } else {
                 this.tttGame.startGame();
@@ -80,7 +80,7 @@ class TicTacToeGame {
         $(this.chatbot).on('failed-connection',() => {this.view.stop(); this.tttGame.stopGame(); this.view.enableAlert("danger","Error: Invalid Twitch Bot credentials.");})
     }
 
-    //returns array containing tic tac toe board as a 1-d 9-length array
+    //returns array containing tic tac toe board as a 9-length array
     get board() {
         return this.tttGame.board;
     }
@@ -124,7 +124,6 @@ class TicTacToeGame {
 
     //performs democracy mode chatbot move
     chatbotMove() {
-        //clears votes and sets internal timerset to true
         this.view.clearVotes();
         this.timerSet = true;
 

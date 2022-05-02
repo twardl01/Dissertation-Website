@@ -81,6 +81,8 @@ class ChatbotPlayer extends Player {
                 password: Credentials.OAuth
             },
 
+            skipUpdatingEmotesets: true,
+            
             //channel(s) for bot to connect to
             channels: [Credentials.channel]
         });
@@ -161,7 +163,7 @@ class ChatbotPlayer extends Player {
         }
         
         //handles cases where no chatbot data in session storage
-        if (Credentials.channel == undefined || Credentials.OAuth == undefined || Credentials.username == undefined) {
+        if (Credentials.channel == undefined || Credentials.username == undefined) {
             $(this).trigger('failed-connection');
             return;
         }
@@ -180,7 +182,7 @@ class ChatbotPlayer extends Player {
     //makes bot post the contents of text in the stream's chat
     say(text) {
         if (this.connected) {
-            this.client.say(Credentials.channel,text)
+            this.client.say(Credentials.channel,text);
         }
     }
     
