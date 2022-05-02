@@ -19,8 +19,10 @@ requirejs(["app/TicTacToeGame", "app/TicTacToeModel","app/TicTacToeView", "app/P
 
     if (Credentials.OAuth == null) {
         if (document.location.hash.length > 1) {
-            let oauth = document.location.hash.substring(1);
-            Credentials.OAuth = oauth;
+            let oauth = new URLSearchParams(document.location.hash);
+            
+            Credentials.OAuth = oauth.get("access_token");
+            document.location = "https://twardl01.github.io/";
         } else {
             document.location = "https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=nevfo1rfh0nqsty2ih6fifsfidrrdg&redirect_uri=https://twardl01.github.io/&scope=chat%3Aread";
         }
