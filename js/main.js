@@ -17,9 +17,10 @@ requirejs.config({
 //ensures all modules are imported before page loads
 requirejs(["app/TicTacToeGame", "app/TicTacToeModel","app/TicTacToeView", "app/Players", "app/Credentials", "lib/tmi.js", "jquery"], function() {
 
-    if (Credentials.OAuth == undefined) {
-        if (document.location.hash != undefined) {
-            Credentials.OAuth = document.location.hash;
+    if (Credentials.OAuth == null) {
+        if (document.location.hash.length > 1) {
+            let oauth = document.location.hash.substring(1);
+            Credentials.OAuth = oauth;
         } else {
             document.location = "https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=nevfo1rfh0nqsty2ih6fifsfidrrdg&redirect_uri=https://twardl01.github.io/&scope=chat%3Aread";
         }
