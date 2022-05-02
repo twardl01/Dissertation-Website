@@ -21,7 +21,7 @@ requirejs(["app/TicTacToeGame", "app/TicTacToeModel","app/TicTacToeView", "app/P
         console.log("OAuth Token not in session storage");
         if (document.location.hash.length > 1) {
             console.log("Hash Returned:" + document.location.hash);
-            let oauth = new URLSearchParams(document.location.hash);
+            let oauth = new URLSearchParams(document.location.hash.substring(1));
 
             let accesstoken = oauth.get("access_token");
             console.log("accesstoken: " + accesstoken);
