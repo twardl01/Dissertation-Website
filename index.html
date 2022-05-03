@@ -49,6 +49,7 @@
                     <!--board container, cells used for interaction-->
                     <!--data-cell-index used for identification-->
                     <!--table used for easy shaping-->
+                    <!--table was built from two examples: https://www.codeleaks.io/tic-tac-toe-game-using-html-css-and-javascript/ and later https://www.dev-tips-and-tricks.com/make-responsive-tic-tac-toe-board-->
                     <div class="container">
                         <table id="board">
                             <tr>
@@ -202,7 +203,7 @@
                                 <h2 class="accordion-header" id="flush-headingOne">
                                     <!--opens accordion-->
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    <span class="fa-solid fa-gear"></span>&nbspOptions
+                                    <span class="fa-solid fa-gear"></span> Options
                                 </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -249,42 +250,39 @@
         </div>
             
 
-            <!--second column, used for left side of screen-->
-        
-        <div class="bs-example">
-            <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Enter Twitch Channels</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Bot Username</label>
-                                        <input id="cred_username" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label>Channel</label>
-                                        <input id="cred_channel" type="text" class="form-control">
-                                    </div>
+        <!--second column, used for left side of screen-->
+        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Enter Twitch Channels</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Bot Username</label>
+                                    <input id="cred_username" type="text" class="form-control">
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="cred_save">Save</button>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Channel</label>
+                                    <input id="cred_channel" type="text" class="form-control">
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="cred_save">Save</button>
+                    </div>
                 </div>
-            </div>           
-        </div>
+            </div>
+        </div>           
         <noscript>
             <label>Please enable JavaScript to use this website.</label>
         </noscript>
