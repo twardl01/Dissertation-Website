@@ -18,7 +18,7 @@ class ChatbotPlayer extends Player {
 
          //twitch client used for fetching data/speaking to the chat
          let client = new tmi.client({
-            //ensures
+            //ensures 
             connection: {
                 secure: true,
                 reconnect: true
