@@ -15,7 +15,7 @@ requirejs.config({
 });
 
 //ensures all modules are imported before page loads
-requirejs(["app/TicTacToeGame", "app/TicTacToeModel","app/TicTacToeView", "app/Players", "app/Credentials", "lib/tmi.js", "jquery"], function() {
+requirejs(["app/TicTacToeGame", "app/TicTacToeModel","app/TicTacToeView", "app/Players", "app/Credentials", "app/HumanPlayer", "app/ChatbotPlayer", "lib/tmi.js", "jquery"], function() {
 
     if (Credentials.OAuth == null) {
         console.log("OAuth Token not in session storage");
