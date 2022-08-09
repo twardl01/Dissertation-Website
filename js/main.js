@@ -1,5 +1,3 @@
-var game;
-
 // Configure loading modules from the lib directory,
 // except for 'app' ones, which are in a sibling
 // directory.
@@ -15,7 +13,7 @@ requirejs.config({
 });
 
 //ensures all modules are imported before page loads
-requirejs(["app/TicTacToeGame", "app/TicTacToeModel","app/TicTacToeView", "app/Players", "app/Credentials", "app/HumanPlayer", "app/ChatbotPlayer", "lib/tmi.js", "jquery"], function() {
+requirejs(["app/HumanPlayer", "app/ChatbotPlayer","app/TicTacToeGame", "app/TicTacToeModel","app/TicTacToeView", "app/Players", "app/Credentials", "lib/tmi.js", "jquery"], function() {
 
     if (Credentials.OAuth == null) {
         console.log("OAuth Token not in session storage");
@@ -27,8 +25,8 @@ requirejs(["app/TicTacToeGame", "app/TicTacToeModel","app/TicTacToeView", "app/P
             console.log("accesstoken: " + accesstoken);
 
             if (accesstoken != null) {
+                //Saves auth token (if present) and redirects to remove the auth from the URL.
                 Credentials.OAuth = "oauth:" + oauth.get("access_token");
-                console.log("Redirecting to remove Auth Token from URL");
                 document.location = "https://twardl01.github.io/";
             }
            
@@ -37,5 +35,5 @@ requirejs(["app/TicTacToeGame", "app/TicTacToeModel","app/TicTacToeView", "app/P
             document.location = "https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=nevfo1rfh0nqsty2ih6fifsfidrrdg&redirect_uri=https://twardl01.github.io/&scope=chat%3Aread";
         }
     }
-    game = new TicTacToeGame();
+    let game = new TicTacToeGame();
 });
